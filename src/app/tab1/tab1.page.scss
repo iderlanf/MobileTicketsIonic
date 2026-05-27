@@ -1,0 +1,23 @@
+.gerar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+
+  h2 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: var(--ion-color-dark);
+  }
+
+  ion-button {
+    margin-bottom: 20px;
+    --border-radius: 12px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    height: 65px; // Botões mais altos para facilitar o clique
+  }
+}

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Painel de Atendimento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Controle de Guichê -->
+  <ion-item class="ion-margin-bottom">
+    <ion-label>Seu Guichê Atual</ion-label>
+    <ion-select [(ngModel)]="guicheSelecionado" placeholder="Escolha">
+      <ion-select-option [value]="1">Guichê 01</ion-select-option>
+      <ion-select-option [value]="2">Guichê 02</ion-select-option>
+      <ion-select-option [value]="3">Guichê 03</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="block" size="large" color="secondary" (click)="chamarProxima()">
+    Chamar Próxima Senha
+  </ion-button>
+
+  <div *ngIf="ultimasSenhas && ultimasSenhas.length > 0" class="senha-atual-box ion-margin-top">
+    <h3>SENHA ATUAL</h3>
+    <h1>{{ ultimasSenhas[0].codigo_senha }}</h1>
+    <h2>GUICHÊ 0{{ ultimasSenhas[0].guiche }}</h2>
+  </div>
+
+  <!-- Últimas Chamadas -->
+  <ion-list class="ion-margin-top" *ngIf="ultimasSenhas.length > 1">
+    <ion-list-header>
+      <ion-label>Últimas Senhas Chamadas</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let s of ultimasSenhas.slice(1)">
+      <ion-label>
+        <h2>{{ s.codigo_senha }}</h2>
+      </ion-label>
+      <ion-note slot="end" color="dark">Guichê 0{{ s.guiche }}</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

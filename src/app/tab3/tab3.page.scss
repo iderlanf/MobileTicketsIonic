@@ -1,0 +1,49 @@
+.header-row {
+  background-color: var(--ion-color-light-shade);
+  font-weight: bold;
+  border-bottom: 2px solid var(--ion-color-medium);
+  text-align: center;
+}
+
+ion-col {
+  border: 1px solid var(--ion-color-light-shade);
+  padding: 8px;
+  text-align: center;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 15px;
+  border: 1px solid var(--ion-color-light-shade);
+  border-radius: 8px;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px; // Garante rolagem horizontal suave no mobile
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--ion-color-light-shade);
+    font-size: 14px;
+  }
+
+  th {
+    background-color: var(--ion-color-primary);
+    color: var(--ion-color-primary-contrast);
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background-color: var(--ion-color-light-tint);
+  }
+}
+
+h3 {
+  font-weight: bold;
+  margin-top: 25px;
+  color: var(--ion-color-dark);
+}

@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Histórico e Relatórios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-segment [(ngModel)]="tipoRelatorio" (ionChange)="mudarRelatorio()">
+    <ion-segment-button value="diario">
+      <ion-label>Diário</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="mensal">
+      <ion-label>Mensal</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="dados" class="ion-margin-top">
+    <!-- Quantitativos Totais -->
+    <ion-card color="light">
+      <ion-card-content>
+        <p><strong>Total Emitidas:</strong> {{ dados.totalEmitidas }}</p>
+        <p><strong>Total Atendidas:</strong> {{ dados.totalAtendidas }}</p>
+        <p><strong>Tempo Médio de Atendimento:</strong> {{ dados.tempoMedio }} min</p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Por Prioridade -->
+    <h3>Por Tipo de Senha</h3>
+    <ion-grid>
+      <ion-row class="header-row">
+        <ion-col>Tipo</ion-col>
+        <ion-col>Emitidas</ion-col>
+        <ion-col>Atendidas</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let p of dados.porPrioridade">
+        <ion-col><strong>{{ p.tipo }}</strong></ion-col>
+        <ion-col>{{ p.emitidas }}</ion-col>
+        <ion-col>{{ p.atendidas }}</ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- Detalhamento -->
+    <h3>Lista Detalhada</h3>
+    <div class="table-responsive">
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th>Número</th>
+            <th>Tipo</th>
+            <th>Emissão</th>
+            <th>Atendimento</th>
+            <th>Guichê</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dados.detalhes">
+            <td>{{ item.codigo_senha }}</td>
+            <td>{{ item.tipo }}</td>
+            <td>{{ item.data_emissao | date:'dd/MM HH:mm' }}</td>
+            <td>{{ item.data_atendimento ? (item.data_atendimento | date:'dd/MM HH:mm') : '-' }}</td>
+            <td>{{ item.guiche ? 'G'+item.guiche : '-' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ion-content>

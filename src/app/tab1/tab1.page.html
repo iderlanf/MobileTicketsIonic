@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Gerar Senha</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="gerar-container">
+    <h2>Selecione o tipo de atendimento:</h2>
+    
+    <ion-button expand="block" color="danger" size="large" (click)="emitir('SP')">
+      SP - SENHA PRIORITÁRIA
+    </ion-button>
+    
+    <ion-button expand="block" color="warning" size="large" (click)="emitir('SE')">
+      SE - PEGAR EXAMES
+    </ion-button>
+    
+    <ion-button expand="block" color="success" size="large" (click)="emitir('SG')">
+      SG - SENHA GERAL
+    </ion-button>
+  </div>
+</ion-content>
