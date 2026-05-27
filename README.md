@@ -62,7 +62,7 @@ Navegue até a pasta do backend:
 ../ticket-backend
 Instale as dependências:
 npm install
-Crie ou configure o arquivo .env na raiz dessa pasta com suas credenciais do banco:
+Crie ou configure o arquivo .env na raiz dessa pasta com suas credenciais do banco(ou tire o nome do arquivo ArquivoSemNome.env deixando apenas .env):
    PORT=3000
    DB_HOST=localhost
    DB_PORT=3306
